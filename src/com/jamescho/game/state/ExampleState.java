@@ -10,6 +10,10 @@ import java.awt.event.MouseEvent;
 public class ExampleState extends State {
 
 
+    private int y = 200;
+    private int x = 400;
+
+
     @Override
     public void init() {
 
@@ -23,7 +27,8 @@ public class ExampleState extends State {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.red);
-        g.drawRect(400, 200, 10, 15);
+        g.drawRect(x, y, 10, 15);
+
     }
 
     @Override
@@ -33,6 +38,19 @@ public class ExampleState extends State {
 
     @Override
     public void onKeyPress(KeyEvent e) {
+        int speed = 10;
+        if (e.getKeyCode() == KeyEvent.VK_DOWN){
+            y += speed;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_UP){
+            y -= speed;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_LEFT){
+            x -= speed;
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT){
+            x += speed;
+        }
 
 
     }
